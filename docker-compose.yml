@@ -1,0 +1,17 @@
+# docker-compose.yml
+
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13.5
+    restart: always
+    environment:
+      - POSTGRES_USER=ftnekoox
+      - POSTGRES_PASSWORD=1l2z94rJIj8hMpznrJU9FgHXfZ56axnU
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+volumes:
+  postgres:
