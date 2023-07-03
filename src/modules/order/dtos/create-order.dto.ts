@@ -1,1 +1,8 @@
-export class CreateOrderDto {}
+export class CreateOrderDto {
+  userId: number;
+  products: {
+    productId: number;
+    quantity: number;
+  }[];
+  totalPrice: number;
+}
