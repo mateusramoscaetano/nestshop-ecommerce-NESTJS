@@ -1,73 +1,58 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# NEST SHOP
+##Um projeto utilizando NestJs e Prisma ORM.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Pré-requisitos
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- Node.js (v18.12.0)
+- npm (8.19.2)
+- Banco de dados (PostgreSQL)
 
-## Description
+## Configuração do Ambiente
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. Clone o repositório:
+$ git clone https://github.com/mateusramoscaetano/nestshop-ecommerce-NESTJS
 
-## Installation
-
-```bash
+2. Instale as dependências:
+   
+$ cd nest-shop
 $ npm install
-```
 
-## Running the app
+3. Configure as variáveis de ambiente:
+   
+Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo:
+   
+DATABASE_URL=postgres://usuario:senha@localhost:5432/nome-do-banco
+JWT_SECRET=sua-chave-secreta
 
-```bash
-# development
+## Executando o Projeto
+
+1. Execute as migrações do banco de dados:
+
+$ npx prisma migrate dev
+
+2. Inicie o servidor:
+ 
 $ npm run start
 
-# watch mode
-$ npm run start:dev
+O servidor estará rodando em `http://localhost:3000`.
 
-# production mode
-$ npm run start:prod
-```
+## Documentação da API
 
-## Test
+A documentação da API está disponível através do Swagger. Acesse o seguinte URL para visualizar a documentação e interagir com os endpoints da API: 
 
-```bash
-# unit tests
-$ npm run test
+[http://localhost:3000/api]
 
-# e2e tests
-$ npm run test:e2e
+## Contribuição
 
-# test coverage
-$ npm run test:cov
-```
+Contribuições são bem-vindas! Para contribuir com este projeto, siga estas etapas:
 
-## Support
+1. Faça um fork do repositório.
+2. Crie uma nova branch com a sua feature (`git checkout -b feature/nome-da-feature`).
+3. Commit suas alterações (`git commit -am 'Adiciona nova feature'`).
+4. Push para a branch (`git push origin feature/nome-da-feature`).
+5. Abra um pull request no GitHub.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Licença
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+   
