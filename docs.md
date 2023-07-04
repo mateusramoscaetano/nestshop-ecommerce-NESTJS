@@ -1,12 +1,10 @@
-Endpoint: POST /users/master
+#Endpoint: POST /users/master
 
-Cria um novo usuário com a role "master".
+##Cria um novo usuário com a role "master".
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-POST /users/master
+#POST /users/master
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -17,8 +15,6 @@ Authorization: Bearer <access_token>
 }
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "email": "string",
@@ -27,15 +23,14 @@ Copy code
 "createdAt": "2023-07-04T16:46:41.455Z",
 "updatedAt": "2023-07-04T16:46:41.455Z"
 }
-Endpoint: POST /users
+#Endpoint: POST /users
 
-Cria um novo usuário.
+##Cria um novo usuário.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-POST /users
+
+#POST /users
 Content-Type: application/json
 
 {
@@ -45,8 +40,6 @@ Content-Type: application/json
 }
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "email": "string",
@@ -55,35 +48,29 @@ Copy code
 "createdAt": "2023-07-04T16:46:41.455Z",
 "updatedAt": "2023-07-04T16:46:41.455Z"
 }
-Endpoint: GET /users/me
+#Endpoint: GET /users/me
 
-Obtém informações do usuário autenticado.
+##Obtém informações do usuário autenticado.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-GET /users/me
+#GET /users/me
 Authorization: Bearer <access_token>
 Resposta:
 
-json
-Copy code
 {
 "sub": 0,
 "email": "string",
 "iat": 0,
 "exp": 0
 }
-Endpoint: POST /auth/login
+#Endpoint: POST /auth/login
 
-Realiza o login do usuário.
+##Realiza o login do usuário.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-POST /auth/login
+#POST /auth/login
 Content-Type: application/json
 
 {
@@ -92,21 +79,17 @@ Content-Type: application/json
 }
 Resposta:
 
-json
-Copy code
 {
 "access_token": "string",
 "redirect": "string"
 }
-Endpoint: POST /products
+#Endpoint: POST /products
 
-Cria um novo produto.
+##Cria um novo produto.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-POST /products
+#POST /products
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -117,8 +100,6 @@ Authorization: Bearer <access_token>
 }
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "name": "string",
@@ -127,19 +108,15 @@ Copy code
 "createdAt": "2023-07-04T16:52:06.843Z",
 "updatedAt": "2023-07-04T16:52:06.843Z"
 }
-Endpoint: GET /products
+#Endpoint: GET /products
 
-Obtém a lista de produtos.
+##Obtém a lista de produtos.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-GET /products
+#GET /products
 Resposta:
 
-json
-Copy code
 [
 {
 "id": 0,
@@ -150,19 +127,15 @@ Copy code
 "updatedAt": "2023-07-04T16:52:06.843Z"
 }
 ]
-Endpoint: GET /products/:id
+#Endpoint: GET /products/:id
 
-Obtém as informações de um produto específico.
+##Obtém as informações de um produto específico.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-GET /products/:id
+#GET /products/:id
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "name": "string",
@@ -171,15 +144,13 @@ Copy code
 "createdAt": "2023-07-04T16:52:06.843Z",
 "updatedAt": "2023-07-04T16:52:06.843Z"
 }
-Endpoint: PUT /products/:id
+#Endpoint: PUT /products/:id
 
-Atualiza as informações de um produto específico.
+##Atualiza as informações de um produto específico.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-PUT /products/:id
+#PUT /products/:id
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -190,8 +161,7 @@ Authorization: Bearer <access_token>
 }
 Resposta:
 
-json
-Copy code
+
 {
 "id": 0,
 "name": "string",
@@ -200,20 +170,16 @@ Copy code
 "createdAt": "2023-07-04T16:54:54.814Z",
 "updatedAt": "2023-07-04T16:54:54.814Z"
 }
-Endpoint: DELETE /products/:id
+#Endpoint: DELETE /products/:id
 
-Exclui um produto específico.
+##Exclui um produto específico.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-DELETE /products/:id
+#DELETE /products/:id
 Authorization: Bearer <access_token>
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "name": "string",
@@ -222,15 +188,13 @@ Copy code
 "createdAt": "2023-07-04T16:55:36.341Z",
 "updatedAt": "2023-07-04T16:55:36.341Z"
 }
-Endpoint: POST /orders
+#Endpoint: POST /orders
 
-Cria um novo pedido.
+##Cria um novo pedido.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-POST /orders
+#POST /orders
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
@@ -239,8 +203,6 @@ Authorization: Bearer <access_token>
 }
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "userId": 0,
@@ -250,20 +212,16 @@ Copy code
 "createdAt": "2023-07-04T16:56:59.729Z",
 "updatedAt": "2023-07-04T16:56:59.729Z"
 }
-Endpoint: GET /orders
+#Endpoint: GET /orders
 
-Obtém a lista de pedidos.
+##Obtém a lista de pedidos.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-GET /orders
+#GET /orders
 Authorization: Bearer <access_token>
 Resposta:
 
-json
-Copy code
 [
 {
 "id": 0,
@@ -275,20 +233,16 @@ Copy code
 "updatedAt": "2023-07-04T16:57:38.336Z"
 }
 ]
-Endpoint: GET /orders/:id
+#Endpoint: GET /orders/:id
 
-Obtém as informações de um pedido específico.
+##Obtém as informações de um pedido específico.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-GET /orders/:id
+#GET /orders/:id
 Authorization: Bearer <access_token>
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "userId": 0,
@@ -298,20 +252,16 @@ Copy code
 "createdAt": "2023-07-04T16:57:59.320Z",
 "updatedAt": "2023-07-04T16:57:59.320Z"
 }
-Endpoint: DELETE /orders/:id
+#Endpoint: DELETE /orders/:id
 
-Exclui um pedido específico.
+##Exclui um pedido específico.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-DELETE /orders/:id
+#DELETE /orders/:id
 Authorization: Bearer <access_token>
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "userId": 0,
@@ -321,20 +271,16 @@ Copy code
 "createdAt": "2023-07-04T16:59:01.338Z",
 "updatedAt": "2023-07-04T16:59:01.338Z"
 }
-Endpoint: DELETE /orders/clear
+#Endpoint: DELETE /orders/clear
 
-Exclui todos os pedidos.
+##Exclui todos os pedidos.
 
-Requisição:
+###Requisição:
 
-http
-Copy code
-DELETE /orders/clear
+#DELETE /orders/clear
 Authorization: Bearer <access_token>
 Resposta:
 
-json
-Copy code
 {
 "id": 0,
 "userId": 0,
