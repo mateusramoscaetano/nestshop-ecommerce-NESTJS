@@ -11,15 +11,47 @@ export class UserService {
     private authService: AuthService,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
+  async createMaster(createUserDto: CreateUserDto) {
     const hashedPassword = await this.authService.hashPassword(
       createUserDto.password,
     );
 
-    await this.prisma.user.create({
-      data: { ...createUserDto, password: hashedPassword },
+    const masterRole = await this.prisma.role.findUnique({
+      where: { name: 'master' },
     });
 
-    return [{ ...createUserDto, password: '-' }];
+    await this.prisma.user.create({
+      data: {
+        ...createUserDto,
+        password: hashedPassword,
+        roles: {
+          connect: { id: masterRole.id },
+        },
+      },
+    });
+
+    return { ...createUserDto, password: '-' };
+  }
+
+  async createClient(createUserDto: CreateUserDto) {
+    const hashedPassword = await this.authService.hashPassword(
+      createUserDto.password,
+    );
+
+    const clientRole = await this.prisma.role.findUnique({
+      where: { name: 'client' },
+    });
+
+    await this.prisma.user.create({
+      data: {
+        ...createUserDto,
+        password: hashedPassword,
+        roles: {
+          connect: { id: clientRole.id },
+        },
+      },
+    });
+
+    return { ...createUserDto, password: '-' };
   }
 }
