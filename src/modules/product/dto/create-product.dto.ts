@@ -14,12 +14,9 @@ export class CreateProductDto {
   @IsOptional()
   @MaxLength(300)
   @IsString()
-  description?: string;
+  description: string;
 
   @IsNotEmpty()
   @IsNumber()
   price: number;
-
-  @IsOptional()
-  quantity: number;
 }

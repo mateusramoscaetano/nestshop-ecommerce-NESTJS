@@ -1,42 +1,44 @@
 import {
   Controller,
-  Get,
   Post,
   Body,
-  Patch,
-  Param,
+  UseGuards,
+  Get,
   Delete,
+  Param,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { OrderService } from './order.service';
-import { CreateOrderDto } from './dtos/create-order.dto';
-import { UpdateOrderDto } from './dtos/update-order.dto';
+import { OrderDto } from './dtos/create-order.dto';
+import { AuthGuard } from 'src/middlewares/auth/auth.guard';
 
 @Controller('orders')
+@UseGuards(AuthGuard)
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   @Post()
-  create(@Body() createOrderDto: CreateOrderDto) {
-    return this.orderService.create();
+  async createOrder(@Body() orderDto: OrderDto) {
+    return await this.orderService.create(orderDto);
   }
 
   @Get()
-  findAll() {
-    return this.orderService.findAll();
+  async findAll() {
+    return await this.orderService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.orderService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
-    return this.orderService.update(+id, updateOrderDto);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    return await this.orderService.findOne(id);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.orderService.remove(+id);
+  async cancelOrder(@Param('id', ParseIntPipe) id: number) {
+    return await this.orderService.cancel(id);
+  }
+
+  @Delete('clear')
+  async cancelAll() {
+    return await this.orderService.clearAll();
   }
 }

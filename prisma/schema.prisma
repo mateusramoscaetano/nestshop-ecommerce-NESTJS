@@ -8,31 +8,43 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  name     String
-  email    String   @unique
-  password String
-  orders   Order[]
+    id Int @id @default(autoincrement())
+    email String @unique
+    password String
+    
+    orders Order[]
+    
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Product {
-  id          Int       @id @default(autoincrement())
-  name        String
-  description String?
-  price       Float
-  orders      Order[]   @relation("OrderProduct")
-  createAt    DateTime  @default(now())
-  updateAt    DateTime  @updatedAt
-  quantity    Int  
+    id Int @id @default(autoincrement())
+    name String
+    description String
+    price Int
+
+    orders Order[]
+    
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Order {
-  id         Int        @id @default(autoincrement())
-  userId     Int
-  user       User       @relation(fields: [userId], references: [id])
-  products   Product[]  @relation("OrderProduct")
-  totalPrice Float
-  createAt   DateTime   @default(now())
-  updateAt   DateTime   @updatedAt
+    id Int @id @default(autoincrement())
+    userId Int
+    status PaymentStatus @default(CREATED)
+    
+    user User @relation(fields: [userId], references: [id])
+    products Product[]
+    
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
+enum PaymentStatus {
+    CREATED
+    CONFIRMED
+    CANCELLED
+    DELIVERED
+}
