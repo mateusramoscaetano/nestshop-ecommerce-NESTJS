@@ -26,9 +26,26 @@ export class AuthService {
       throw new UnauthorizedException();
     }
 
-    const acess_token = await this.jwtService.signAsync({ user });
+    const acess_token = await this.signToken(user.id, user.email);
 
     return acess_token;
+  }
+
+  async signToken(
+    userId: number,
+    email: string,
+  ): Promise<{ access_token: string; redirect: string | undefined }> {
+    const payload = {
+      sub: userId,
+      email,
+    };
+
+    const token = await this.jwtService.signAsync(payload);
+
+    return {
+      access_token: token,
+      redirect: '/',
+    };
   }
 
   async hashPassword(password: string): Promise<string> {
