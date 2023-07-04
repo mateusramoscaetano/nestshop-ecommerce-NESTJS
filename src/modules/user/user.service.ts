@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 
 import { PrismaService } from 'src/database/prisma/prisma.service';
@@ -30,7 +30,7 @@ export class UserService {
       },
     });
 
-    return { ...createUserDto, password: '-' };
+    return { ...createUserDto, password: '-', roles: masterRole.name };
   }
 
   async createClient(createUserDto: CreateUserDto) {
@@ -52,6 +52,6 @@ export class UserService {
       },
     });
 
-    return { ...createUserDto, password: '-' };
+    return { ...createUserDto, password: '-', roles: clientRole.name };
   }
 }

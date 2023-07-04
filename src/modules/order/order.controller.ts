@@ -11,12 +11,23 @@ import {
 import { OrderService } from './order.service';
 import { OrderDto } from './dtos/create-order.dto';
 import { AuthGuard } from 'src/middlewares/auth/auth.guard';
-import { ApiTags, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiHeader,
+} from '@nestjs/swagger';
 import { OrderEntity } from './entities/order.entity';
 
 @Controller('orders')
 @ApiTags('orders')
 @UseGuards(AuthGuard)
+@ApiHeader({
+  name: 'Authorization',
+  description: 'Token de autenticação',
+  required: true,
+  schema: { type: 'string' },
+})
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
@@ -45,7 +56,7 @@ export class OrderController {
   }
 
   @Delete('clear')
-  @ApiOkResponse()
+  @ApiOkResponse({ type: OrderEntity })
   async cancelAll() {
     return await this.orderService.clearAll();
   }
