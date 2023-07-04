@@ -1,6 +1,7 @@
 # NEST SHOP
 ##Um projeto utilizando NestJs e Prisma ORM.
 
+
 ## Pré-requisitos
 
 - Node.js (v18.12.0)
@@ -10,16 +11,17 @@
 ## Configuração do Ambiente
 
 1. Clone o repositório:
--$ git clone https://github.com/mateusramoscaetano/nestshop-ecommerce-NESTJS
+$ git clone https://github.com/mateusramoscaetano/nestshop-ecommerce-NESTJS
 
 2. Instale as dependências:
    
--$ cd nest-shop
--$ npm install
+$ cd nest-shop
+$ npm install
+
 
 3. Configure as variáveis de ambiente:
    
-Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo:
+   Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo:
    
 DATABASE_URL=postgres://usuario:senha@localhost:5432/nome-do-banco
 JWT_SECRET=sua-chave-secreta
@@ -28,11 +30,12 @@ JWT_SECRET=sua-chave-secreta
 
 1. Execute as migrações do banco de dados:
 
--$ npx prisma migrate dev
+$ npx prisma migrate dev
 
 2. Inicie o servidor:
  
--$ npm run start
+ $ npm run start
+
 
 O servidor estará rodando em `http://localhost:3000`.
 
@@ -40,7 +43,7 @@ O servidor estará rodando em `http://localhost:3000`.
 
 A documentação da API está disponível através do Swagger. Acesse o seguinte URL para visualizar a documentação e interagir com os endpoints da API: 
 
--[http://localhost:3000/api]
+http://localhost:3000/api
 
 ## Contribuição
 
@@ -55,4 +58,3 @@ Contribuições são bem-vindas! Para contribuir com este projeto, siga estas et
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
-   
